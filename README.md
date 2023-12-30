@@ -15,5 +15,5 @@ The postman delivers packages
 - The creator of the original script and everyone who contributed to it.
 - DerHobbs for revision
 
-## Biggest Credits Goes To Stx Development For Converting It And Not Hidding The Code And Make It Free
+## Biggest Credits Goes To Stx Development For Converting It ( LuFFyPaYiPlaYz )
 * [Discord](https://discord.gg/pTq4D5DkFD)
