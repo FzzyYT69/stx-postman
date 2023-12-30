@@ -10,10 +10,20 @@ The postman delivers packages
 ## 2. insallation
 `ensure vorp_postman` in your resources.cfg
 
-
-## 4. credits
-- The creator of the original script and everyone who contributed to it.
-- DerHobbs for revision
+## 3. features
+- Deliver packages across the country
+- Create as many routes as you want
+- AFK timer
+- Carriage timer
+- Disable Run
+- Max speed from the carriage
+- CinematicMode on/off
+- and much more
 
 ## Credits Goes To Stx Development For Converting It
 * [Stx Development](https://discord.gg/pTq4D5DkFD)
+
+## Credits
+- The creator of the original script and everyone who contributed to it.
+- DerHobbs for revision
+
