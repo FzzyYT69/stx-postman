@@ -186,7 +186,7 @@ function JobRun()
                 local distance = GetDistanceBetweenCoords(Pos.x, Pos.y, Pos.z, deliverLoc.x, deliverLoc.y, deliverLoc.z, true)
                 if (distance <= 15.0) then
                     local zoneName = deliverLocation.Name
-                    local displayText = "Paket ablegen beim ".. zoneName .. ""
+                    local displayText = "Drop the package off at ".. zoneName .. ""
                     if (distance <= 1.5) then
                         displayText = _U("LabelPickup") .. displayText
                         if (IsControlJustReleased(0, KeyToPick)) then
