@@ -5,11 +5,6 @@ local VORPinv
 local _Vehicles = {}
 local _Packages = {}
 
---Inventory = exports.vorp_inventory:vorp_inventoryApi()
-
---TriggerEvent("getCore",function(core)
---    VorpCore = core
---end)
 
 RegisterServerEvent('vorp_postman:GetReward')
 AddEventHandler("vorp_postman:GetReward", function(postOffice, deliverLocation)
@@ -18,7 +13,6 @@ AddEventHandler("vorp_postman:GetReward", function(postOffice, deliverLocation)
     local Player = RSGCore.Functions.GetPlayer(_source)
     local moneyReward = (math.random(deliverLocation.Money[1], deliverLocation.Money[2])) / 100
     Player.Functions.AddMoney('cash', moneyReward)
-    --VorpCore.NotifyLeft(_source, _U("JobTip"), _U("MoneyReward")..moneyReward.._U("MoneyReward2"), "BLIPS", "blip_shop_doctor", 6000, "COLOR_GREEN")
     TriggerClientEvent('RSGCore:Notify', _source, 'Postman : You have '..moneyReward..' $ received', 'success')
 end)
 
