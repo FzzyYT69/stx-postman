@@ -1,3 +1,4 @@
+local RSGCore = exports['rsg-core']:GetCoreObject()
 local PromptGroup = GetRandomIntInRange(0, 0xffffff)
 local PromptGroup2 = GetRandomIntInRange(0, 0xffffff)
 local PromptGroup3 = GetRandomIntInRange(0, 0xffffff)
@@ -283,7 +284,8 @@ function StartVehTimer(packageEntity)
                 _in(0x9E0AB9AAEE87CE28)
                 deliverypoints = {}
                 cinematicoff = false
-                TriggerEvent('vorp:NotifyLeft', _U("JobTip"), _U("JobTip2"), Config.NotifyDict, Config.NotifyTexture, Config.NotifyTime, Config.NotifyColor)
+                RSGCore.Functions.Notify('Postman : You Took A Long Time....', 'error')
+                --TriggerEvent('vorp:NotifyLeft', _U("JobTip"), _U("JobTip2"), Config.NotifyDict, Config.NotifyTexture, Config.NotifyTime, Config.NotifyColor)
                 return
             end
             Citizen.Wait(1000)
@@ -326,7 +328,8 @@ function StartVehicleTimer()
                 _in(0x9E0AB9AAEE87CE28)
                 deliverypoints = {}
                 cinematicoff = false
-                TriggerEvent('vorp:NotifyLeft', _U("JobTip"), _U("JobTip2"), Config.NotifyDict, Config.NotifyTexture, Config.NotifyTime, Config.NotifyColor)
+                --TriggerEvent('vorp:NotifyLeft', _U("JobTip"), _U("JobTip2"), Config.NotifyDict, Config.NotifyTexture, Config.NotifyTime, Config.NotifyColor)
+                RSGCore.Functions.Notify('Postman : You Took A Long Time....', 'error')
                 return
             end
             Citizen.Wait(1000)
@@ -343,12 +346,14 @@ function StopJob()
     deliverypoints = {}
     startvehicletimer = false
     cinematicoff = false
-    TriggerEvent('vorp:NotifyLeft', _U("JobTip"), _U("JobEnd2"), Config.NotifyDict, Config.NotifyTexture, Config.NotifyTime, Config.NotifyColor)
+    --TriggerEvent('vorp:NotifyLeft', _U("JobTip"), _U("JobEnd2"), Config.NotifyDict, Config.NotifyTexture, Config.NotifyTime, Config.NotifyColor)
+     RSGCore.Functions.Notify('Postman : Thank you for your work, see you later', 'error')
 end
 
 function NewLocation()
         if (#PackageList <= 0) then
-            TriggerEvent('vorp:NotifyLeft', _U("JobTip"), _U("JobEnd3"), Config.NotifyDict, Config.NotifyTexture, Config.NotifyTime, Config.NotifyColor)
+            RSGCore.Functions.Notify('Postman : Return to the office and hand over the carriage, you have delivered all the packages', 'error')
+            --TriggerEvent('vorp:NotifyLeft', _U("JobTip"), _U("JobEnd3"), Config.NotifyDict, Config.NotifyTexture, Config.NotifyTime, Config.NotifyColor)
             _in(0x9E0AB9AAEE87CE28)
             deliverLocation = {}
             deliverypoints = {}
@@ -361,8 +366,8 @@ function NewLocation()
         _in(0x64C59DD6834FA942, deliverLocation.Pos[1], deliverLocation.Pos[2], deliverLocation.Pos[3])
         _in(0x4426D65E029A4DC0, true)
         local zoneName = deliverLocation.Name
-       
-        TriggerEvent('vorp:NotifyLeft', _U("JobTip"), _U("JobWork2")..zoneName.._U("JobWork3"), Config.NotifyDict, Config.NotifyTexture, Config.NotifyTime, Config.NotifyColor)
+        RSGCore.Functions.Notify('Postman : Drive to '..zoneName..' and deliver the package there', 'error')
+        --TriggerEvent('vorp:NotifyLeft', _U("JobTip"), _U("JobWork2")..zoneName.._U("JobWork3"), Config.NotifyDict, Config.NotifyTexture, Config.NotifyTime, Config.NotifyColor)
 end
 
 function PickPackage(packageEntity)
@@ -528,11 +533,11 @@ AddEventHandler('onResourceStart', function(resourceName)
     InitPostMan()
 end)
 
-RegisterNetEvent("vorp:SelectedCharacter") -- NPC loads after selecting character
-AddEventHandler("vorp:SelectedCharacter", function(charid)
-    Wait(10000)
-    InitPostMan()
+RegisterNetEvent('RSGCore:Client:OnPlayerLoaded', function()
+        Wait(10000)
+        InitPostMan()
 end)
+
 
 AddEventHandler('onResourceStop', function(resourceName)
     if (GetCurrentResourceName() ~= resourceName) then
