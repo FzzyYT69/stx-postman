@@ -218,7 +218,7 @@ function JobRun()
                 local packageLoc = GetEntityCoords(currentPackage)
                 local distance = #(Pos - packageLoc)
                 if (distance <= 5.0) and not IsPedInAnyVehicle(PlayerPedId(), true) then
-                    local displayText = "Paket nehmen"
+                    local displayText = "Take Package"
                     if (distance <= 1.5) and not IsPedInAnyVehicle(PlayerPedId(), true) then
                         _in(0x7DFB49BCDB73089A, currentPackage, true)
                         displayText = displayText .. _U("LabelPickup")
