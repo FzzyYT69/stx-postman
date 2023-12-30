@@ -21,6 +21,9 @@ The postman delivers packages
 - and much more
 
 ## Credits Goes To Stx Development For Converting It
+
+For More Support Join Our Discord 
+
 * [Stx Development](https://discord.gg/pTq4D5DkFD)
 
 ## Credits
